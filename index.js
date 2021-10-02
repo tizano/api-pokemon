@@ -4,6 +4,7 @@ require('dotenv').config();
 require('./models/db.config');
 
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const port = 5500;
 const cardRoutes = require('./routes/card.controller');
@@ -11,8 +12,8 @@ const cardRoutes = require('./routes/card.controller');
 // app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors({
-  // origin: ['http://localhost*', 'https://pokemon.mathieuscarlatella.fr']
-  origin: '*'
+  origin: ['http://localhost*', 'https://pokemon.mathieuscarlatella.fr']
+  // origin: '*'
 }));
 app.use('/cards', cardRoutes);
 
