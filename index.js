@@ -10,6 +10,9 @@ const cardRoutes = require('./routes/card.controller');
 
 // app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cors({
+  origin: ['http://localhost*', 'https://pokemon.mathieuscarlatella.fr']
+}));
 app.use('/cards', cardRoutes);
 
 // app.get('/', (req, res) => {
