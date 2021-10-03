@@ -5,7 +5,7 @@ const router = express.Router();
 // Get all cards
 router.get('/', async (req, res) => {
   try {
-    const cards = await Card.find().lean(); // "lean" to get only JSON data (not Mongoose objects), faster
+    const cards = await Card.find(req.body).lean(); // "lean" to get only JSON data (not Mongoose objects), faster
     res.status(200).send(cards);
   } catch(err) {
     res.status(500).send(err);
